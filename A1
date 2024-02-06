@@ -1,0 +1,29 @@
+def replacements(str1, str2):
+    count = 0
+    while str1 != str2:
+        # Проверяем первое правило замены: 0 -> 2
+        if '0' in str1:
+            str1 = str1.replace('0', '2')
+            count += 1
+
+        # Проверяем второе правило замены: 1 -> 0
+        if '1' in str1:
+            str1 = str1.replace('1', '0')
+            count += 1
+
+        # Проверяем третье правило замены: 2 -> 01
+        if '2' in str1:
+            str1 = str1.replace('2', '01')
+            count += 1
+
+        # Проверяем четвертое правило замены: 02 -> 1
+        if '02' in str1:
+            str1 = str1.replace('02', '1')
+            count += 1
+
+    return count
+
+str1 = "11202"
+str2 = "00010101"
+
+print("Число замен:", replacements(str1, str2))
